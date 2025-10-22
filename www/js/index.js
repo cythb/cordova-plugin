@@ -33,11 +33,11 @@ function onDeviceReady() {
             cordova.exec(
                          function (res) {
                              console.log('QRCodeScannerPlugin.show success', res);
-                             alert('QRCodeScannerPlugin.show success' + res);
+                             alert('QRCodeScannerPlugin.show success ' + res);
                          },
                          function (err) {
                              console.error('QRCodeScannerPlugin.show error', err);
-                             alert('QRCodeScannerPlugin.show error' + err);
+                             alert('QRCodeScannerPlugin.show error ' + err);
                          },
                 'QRCodeScannerPlugin',
                 'show',
