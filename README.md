@@ -10,8 +10,11 @@ cd cordova-plugin
 npx cordova platform add ios
 npx cordova prepare ios
 xed platforms/ios
+# update team in buiding settings
 # run on an iOS device
 ```
+
+![update setting](assets/signing.png)
 
 ## Progress
 
