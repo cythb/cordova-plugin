@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="cordova-plugin-qrcode-scanner"
+    version="1.0.0">
+    <name>Cordova Plugin QRCode Scanner</name>
+    <description></description>
+    <license>MIT</license>
+    <keywords></keywords>
+    <repo>https://github.com/driftyco/cordova-plugin-template.git</repo>
+    <issue>https://github.com/driftyco/cordova-plugin-template/issues</issue>
+
+    <!-- android -->
+    <platform name="android">
+      <js-module src="www/plugin.js" name="plugin">
+        <runs/>
+
+        <!-- This is the window variable name you want, like window.QRCodeScannerPlugin -->
+        <clobbers target="QRCodeScannerPlugin" />
+      </js-module>
+      <config-file target="res/xml/config.xml" parent="/*">
+        <feature name="QRCodeScannerPlugin">
+          <param name="android-package" value="com.example.QRCodeScannerPlugin" />
+          <param name="onload" value="true" />
+        </feature>
+      </config-file>
+
+      <source-file src="src/android/com/example/QRCodeScannerPlugin.java" target-dir="src/com/example/" />
+    </platform>
+
+    <!-- ios -->
+    <platform name="ios">
+        <js-module src="www/plugin.js" name="plugin">
+            <runs/>
+            <clobbers target="QRCodeScannerPlugin" />
+        </js-module>
+        <config-file target="config.xml" parent="/*">
+            <feature name="QRCodeScannerPlugin">
+                <param name="ios-package" value="QRCodeScannerPlugin" onload="true" />
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/QRCodeScannerPlugin.h" />
+        <source-file src="src/ios/QRCodeScannerPlugin.m" />
+        <source-file src="src/ios/QRScannerViewController.swift" />
+        <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
+          <string>Requires access to camera to scan QR code</string>
+        </config-file>
+        
+      <podspec>
+        <config>
+          <source url="https://github.com/CocoaPods/Specs.git"/>
+        </config>
+        <pods use-frameworks="true">
+          <pod name="MercariQRScanner" git="https://github.com/mercari/QRScanner.git" branch="master"/>
+        </pods>
+      </podspec>
+    </platform>
+</plugin>
