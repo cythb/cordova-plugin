@@ -5,6 +5,9 @@ In this challenge, I set out to create a Cordova plugin for scanning QR codes. I
 ## How to Run
 
 ``` bash
+git clone https://github.com/cythb/cordova-plugin.git
+cd cordova-plugin
+npx cordova platform add ios
 npx cordova prepare ios
 xed platforms/ios
 # run on an iOS device
