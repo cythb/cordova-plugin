@@ -28,7 +28,8 @@ class QRScannerViewController: UIViewController {
     @objc private func callJS() {
         self.webviewEngine?.evaluateJavaScript("callFromNative()") { response, error in
             // !!!: can't use let error = error or let error = error as NSError?
-            guard error == nil, let response = response as? String else { return }
+            // FIXME: need to find a way to check if get an error or not
+            guard let response = response as? String else { return }
             print(response)
         }
     }
