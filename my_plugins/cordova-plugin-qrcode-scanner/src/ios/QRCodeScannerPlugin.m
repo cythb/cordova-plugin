@@ -38,6 +38,7 @@
     QRScannerViewController* scannerViewController = [[QRScannerViewController alloc] initWithNibName:nil bundle:nil];
     self.scannerViewController = scannerViewController;
     self.scannerViewController.delegate = self;
+    self.scannerViewController.webviewEngine = self.webViewEngine;
     [self.viewController presentViewController:self.scannerViewController animated:YES completion:^{}];
 }
 
@@ -61,8 +62,10 @@
         }
 
         if (strongSelf.showCallbackId != nil) {
-            [strongSelf.commandDelegate sendPluginResult:result callbackId:strongSelf.showCallbackId];
-            strongSelf.showCallbackId = nil;
+            [strongSelf.commandDelegate runInBackground:^{
+                [strongSelf.commandDelegate sendPluginResult:result callbackId:strongSelf.showCallbackId];
+                strongSelf.showCallbackId = nil;
+            }];
         }
     }];
 }

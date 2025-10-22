@@ -46,3 +46,7 @@ function onDeviceReady() {
         });
     }
 }
+
+function callFromNative(message) {
+    return "callFromNative";
+}
