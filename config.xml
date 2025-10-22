@@ -9,4 +9,5 @@
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <preference name="deployment-target" value="14.0" />
+    <preference name="SwiftVersion" value="6.2" />
 </widget>

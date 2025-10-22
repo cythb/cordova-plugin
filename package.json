@@ -17,7 +17,9 @@
     "cordova-plugin-qrcode-scanner": "file:my_plugins/cordova-plugin-qrcode-scanner"
   },
   "cordova": {
-    "platforms": [],
+    "platforms": [
+      "ios"
+    ],
     "plugins": {
       "cordova-plugin-qrcode-scanner": {}
     }
