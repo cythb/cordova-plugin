@@ -4,6 +4,11 @@ In this challenge, I set out to create a Cordova plugin for scanning QR codes. I
 
 ![preview](assets/preview.gif)
 
+## Changelog
+- 10-22
+	1. Fixed THREAD WARNING
+	2. Added a new button to call JavaScript code from Swift
+
 ## How to Run
 
 ``` bash

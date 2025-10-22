@@ -9,10 +9,28 @@ public protocol QRScannerViewControllerDelegate: AnyObject {
 @objcMembers
 class QRScannerViewController: UIViewController {
     weak var delegate: QRScannerViewControllerDelegate?
+    weak var webviewEngine: CDVWebViewEngineProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupQRScanner()
+        setupCallJSButton()
+    }
+    
+    private func setupCallJSButton() {
+        let button = UIButton(type: .system)
+        button.setTitle("Call JS", for: .normal)
+        button.frame = CGRect(x: 20, y: 100, width: 100, height: 50)
+        button.addTarget(self, action: #selector(callJS), for: .touchUpInside)
+        self.view.addSubview(button)
+    }
+    
+    @objc private func callJS() {
+        self.webviewEngine?.evaluateJavaScript("callFromNative()") { response, error in
+            // !!!: can't use let error = error or let error = error as NSError?
+            guard error == nil, let response = response as? String else { return }
+            print(response)
+        }
     }
 
     private func setupQRScanner() {
@@ -59,3 +77,4 @@ extension QRScannerViewController: @MainActor QRScannerViewDelegate {
         delegate.didScan(code: code, error: nil)
     }
 }
+
