@@ -2,6 +2,8 @@
 
 In this challenge, I set out to create a Cordova plugin for scanning QR codes. I implemented the plugin using Objective-C and Swift, and also enabled interaction between Objective-C and Swift within the plugin.
 
+![preview](assets/preview.gif)
+
 ## How to Run
 
 ``` bash
